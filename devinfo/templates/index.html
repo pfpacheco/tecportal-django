@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <title>Axiros Device Info</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/icons/axiros.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <!--===============================================================================================-->
+</head>
+<body>
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+            <form name='index' action="{% url 'result' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="username" id="username" value="{{ username }}"/>
+                <input type="hidden" name="encrypted" id="encrypted" value="{{ encrypted }}"/>
+                <div class="form-group">
+                    <label for="cpe_id" class="cols-sm-2 control-label">Device CPE ID</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                            	<i class="fa fa-laptop fa" aria-hidden="true">
+                            	</i>
+                            </span>
+                            <input type="text" class="form-control" name="cpe_id" id="cpe_id" value="{{ cpe_id }}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label name="error_msg" class="cols-sm-2 control-label">
+                        {{ error_msg }}
+                    </label>
+                </div>
+                <div class="form-group" id="submit_button">
+                    <input type="submit" id="button" value="Submit" class="btn btn-block button"/>
+                </div>
+                <table class="form-group" align="center" cellpadding="20px" cellspacing="5px">
+                    <tr>
+                        <td>
+                            <img align="center" src="/static/images/axiros.png" height="30" width="60"/>
+                        </td>
+                        <td>
+                            <img align="center" src="/static/images/logo.png" height="30" width="60"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

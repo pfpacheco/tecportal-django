@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <title>Axiros Device Info</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/icons/axiros.ico">
+    <link rel="stylesheet" type="text/css" media="all" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <!--===============================================================================================-->
+</head>
+<body>
+<div class="container">
+    <div class="row main">
+        <div class="main-login main-center">
+            <form name='login' action="{% url 'index' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username" class="cols-sm-2 control-label">Username</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user fa" aria-hidden="true">
+                                </i>
+                            </span>
+                            <input type="text" class="form-control" name="username" id="username"
+                                   value="{{ username }}" placeholder="Enter username"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label">Password</label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                            	<i class="fa fa-key fa" aria-hidden="true">
+                            	</i>
+                            </span>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   value="{{ password }}" placeholder="Enter password"/>
+                        </div>
+                    </div>
+                </div>
+                {%if error_msg != ""%}
+                <div class="form-group">
+                    <label name="error_msg" class="cols-sm-2 control-label">
+                        {{ error_msg }}
+                    </label>
+                </div>
+                {%endif%}
+                <div class="form-group" id="login_button">
+                    <input type="submit" id="login" value="Login" class="btn btn-block button"/>
+                </div>
+                <table class="form-group" align="center" cellpadding="20px" cellspacing="5px">
+                    <tr>
+                        <td>
+                            <img align="center" src="/static/images/axiros.png" height="30" width="60"/>
+                        </td>
+                        <td>
+                            <img align="center" src="/static/images/logo.png" height="30" width="60"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <table class="copy" width="100%">
+                <tr>
+                    <td></td>
+                    <td nowrap>
+                        <a href="https://httpd.apache.org/" target="_self"> &copy; Axiros GmbH | &copy; Apache HTTP
+                            Server</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

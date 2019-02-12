@@ -1,0 +1,22 @@
+{
+	"server": {
+		"url": "http://172.16.5.219",
+		"port": 8676
+	},
+	"services": {
+		"auth": "/live/manage",
+		"probeStatus": "/live/CPEManager/Interfaces/rest/v1/action/getProbeStatus"
+	},
+	"states": [
+		"Up to date",
+		"Pending",
+		"Configuring",
+		"Initial",
+		"No reach configuration",
+		"No reach up to date",
+		"No reach pending",
+		"Configure failed",
+		"Firmware downloading",
+		"Reboot"
+	]
+}
